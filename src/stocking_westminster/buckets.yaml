@@ -1,0 +1,72 @@
+# Narrative buckets — the only bespoke taxonomy in the project.
+#
+# Matching precedence (pipeline applies most-specific first):
+#   1. `codes`     — exact 5-digit SIC codes
+#   2. `divisions` — 2-digit SIC divisions
+#   3. `sections`  — SIC section letters
+# First bucket to match wins; buckets are evaluated top-to-bottom.
+# Anything unmatched falls through to its plain SIC section name.
+#
+# Keep this honest: buckets are for storytelling, the SIC spine is for truth.
+# Every chart should be reproducible from SIC codes alone.
+
+buckets:
+  - name: Gambling
+    codes: ["92000"]
+    divisions: [92]
+
+  - name: Tobacco
+    divisions: [12]
+
+  - name: Alcohol
+    codes: ["11010", "11020", "11030", "11040", "11050", "11060", "11070"]
+
+  - name: Fossil fuels
+    divisions: [5, 6, 9, 19]
+    codes: ["35210", "46710"]
+
+  - name: Defence
+    codes: ["25400", "30300", "30400", "84220"]
+
+  - name: Private healthcare
+    divisions: [86, 87]
+
+  - name: Pharma
+    divisions: [21]
+    codes: ["72110"]
+
+  - name: Banking & finance
+    sections: [K]
+
+  - name: Property & construction
+    sections: [L, F]
+
+  - name: Law
+    codes: ["69101", "69102", "69109"]
+    divisions: [69]
+
+  - name: Consulting & lobbying
+    codes: ["70210", "70229", "82990"]
+    divisions: [70]
+
+  - name: Media & publishing
+    divisions: [58, 59, 60, 63]
+
+  - name: Tech
+    divisions: [61, 62]
+
+  - name: Education
+    sections: [P]
+
+  - name: Trade unions & member orgs
+    codes: ["94200", "94110", "94120", "94910", "94920", "94990"]
+    divisions: [94]
+
+  - name: Agriculture
+    sections: [A]
+
+  - name: Transport
+    sections: [H]
+
+  - name: Retail & consumer
+    sections: [G, I]
