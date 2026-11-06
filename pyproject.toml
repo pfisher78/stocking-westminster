@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stocking-westminster"
+version = "0.2.0"
+description = "UK MPs' declared financial interests, joined to Companies House SIC codes"
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.31",
+    "pandas>=2.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "responses>=0.25"]
+
+[project.scripts]
+sw = "stocking_westminster.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+stocking_westminster = ["buckets.yaml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
